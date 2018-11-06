@@ -32,17 +32,18 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   // });
 
   // Challange //
+
   // db.collection('Users').deleteMany({
   //   name: 'Ebran'
   // }).then((result) => {
   //   console.log(result);
   // });
 
-  db.collection('Users').findOneAndDelete({
-    _id: new ObjectID('5bcf0b73934af52920845248')
-  }).then((result) => {
-    console.log(result);
-  });
+  // db.collection('Users').findOneAndDelete({
+  //   _id: new ObjectID('5bcf0b73934af52920845248')
+  // }).then((result) => {
+  //   console.log(result);
+  // });
 
-  // db.close();
+  db.close();
 });
