@@ -133,6 +133,18 @@ app.post('/users', (req, res) => {
   });
 });
 
+//Users POST login
+app.post('/users/login', (req, res) => {
+  let body = _.pick(req.body, ['email', 'password']);
+
+  User.findByCredentials(body.email, body.password).then((user) => {
+    return user.generateAuthToken().then((token) => {
+      res.header('x-auth', token).send(user);
+    });
+  }).catch((e) => {
+    res.status(400).send();
+  });
+});
 
 // Private Route /users/me
 app.get('/users/me', authenticate, (req, res) => {
