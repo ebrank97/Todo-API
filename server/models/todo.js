@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-let Todo = mongoose.model('Todo', {
+let Todo = mongoose.model('Todos', {
   text: {
     type: String,
     required: true,
@@ -14,6 +14,9 @@ let Todo = mongoose.model('Todo', {
   completedAt: {
     type: Number,
     default: null
+  },
+  _creator: {
+    type: mongoose.Schema.Types.ObjectId
   }
 });
 
